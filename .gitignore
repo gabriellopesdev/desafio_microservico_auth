@@ -1,1 +1,3 @@
-services/*/node_modules/*
+services/authentication/node_modules/
+services/mock/node_modules/
+*.env

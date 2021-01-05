@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const routes = require('./routes')
+const Connection = require('./config/database')
 
 class AppController {
 
@@ -10,6 +11,7 @@ class AppController {
         this.express = express()
         this.middlewares()
         this.routes()
+        this.con = new Connection()
     }
 
   middlewares() {
