@@ -11,8 +11,10 @@ router.get('/', (req, res) => {
     res.status(200).json(doc)
   })
 
-router.post('/authenticate', AuthenticateController.execute)
-router.post('/authorizate', AuthorizateController.execute)
+router.post('/authentication', AuthenticateController.execute)
+router.post('/authorization', AuthorizateController.execute)
+router.get('/authorization/validate', AuthorizateController.validate)
+
 
 
 module.exports = router

@@ -73,6 +73,24 @@ const userModule = {
             expiresIn: '1d'
         })
         return token
+    },
+
+    validateToken: (token) => {
+        const decodedToken = jwt.verify(String(token), String(process.env.SECRET), 
+        function(error, decoded) {
+            return (decoded)
+        })   
+
+        if (!decodedToken) { 
+            throw new UserException(401, 'Invalid token')
+        }
+
+        return {
+            message: 'Valid token provided',
+            body: {
+                content: decodedToken.email
+            }
+        }
     }
 
 }
