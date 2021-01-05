@@ -8,7 +8,7 @@ async function authenticateUser(email, password, secondFactor) {
         const message = await User.sendSecondFactorAuth(secondFactor, tempAccessCode)
         return {
             status_code: 200,
-            message:  `User authenticated. ${message}`
+            message:  `User authenticated. ${message || ''}`
         }        
     } catch (error) {
         return {
