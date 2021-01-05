@@ -14,14 +14,14 @@ class AppController {
         this.con = new Connection()
     }
 
-  middlewares() {
-    this.express.use(express.json())
-    this.express.use(cors())
-  }
+    middlewares() {
+        this.express.use(express.json())
+        this.express.use(cors())
+    }
 
-  routes() {
-    this.express.use(routes)
-  }
+    routes() {
+        this.express.use(routes)
+    }
 }
 
 module.exports = AppController
