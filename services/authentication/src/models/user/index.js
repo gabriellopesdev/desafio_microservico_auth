@@ -1,4 +1,5 @@
 const UserSchema = require('../../repository/database/schemas/user')
+const jwt = require('jsonwebtoken')
 const { sendMail } = require('../../services/email')
 const { sendSMS } = require('../../services/sms')
 
@@ -57,8 +58,22 @@ const userModule = {
     },
 
     validateTempAccessCode: async (email, tempAccessCode) => {
+        const [user] = await UserSchema.find({ email, temp_access_code: tempAccessCode})
+        if (!user) {
+            throw new UserException(401, 'Invalid email or access code')
+        }
+        await UserSchema.updateOne({ email, temp_access_code: tempAccessCode }, 
+                                   { temp_access_code: '' })
 
+        return true
     },
+    
+    generateBearerToken: (email) => {  
+        const token = jwt.sign( { email }, process.env.SECRET, {
+            expiresIn: '1d'
+        })
+        return token
+    }
 
 }
 

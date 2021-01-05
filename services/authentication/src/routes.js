@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const AuthenticateController = require('./controller/authenticate')
+const AuthorizateController = require('./controller/authorizate')
+
 
 router.get('/', (req, res) => {
    const doc = {
@@ -10,5 +12,7 @@ router.get('/', (req, res) => {
   })
 
 router.post('/authenticate', AuthenticateController.execute)
+router.post('/authorizate', AuthorizateController.execute)
+
 
 module.exports = router
