@@ -19,7 +19,8 @@ const userModule = {
         }
         return {
             email: user.email,
-            password: user.password
+            password: user.password,
+            phone: user.phone
         }
     },
 

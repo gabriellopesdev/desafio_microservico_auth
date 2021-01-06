@@ -9,8 +9,7 @@ const AuthenticateController = {
             return res.status(401).send({ message: 'Invalid user'})
         }
         authenticateUseCase(email, password, {
-            channel: phone ? 'phone' : 'email',
-            source: phone || email
+            channel: phone ? 'phone' : 'email'
         }).then((result) => {
             const { status_code, message, body } = result
             return res.status(status_code || 400).send({ message, body })

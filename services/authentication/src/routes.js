@@ -15,6 +15,4 @@ router.post('/authentication', AuthenticateController.execute)
 router.post('/authorization', AuthorizateController.execute)
 router.get('/authorization/validate', AuthorizateController.validate)
 
-
-
 module.exports = router

@@ -5,7 +5,10 @@ async function authenticateUser(email, password, secondFactor) {
         const userData = await User.searchUser(email)
         await User.validatePassword(password, userData.password)
         const tempAccessCode = await User.generateTempAccessCode(userData.email)
-        const message = await User.sendSecondFactorAuth(secondFactor, tempAccessCode)
+        const message = await User.sendSecondFactorAuth({
+            source: secondFactor.channel == 'phone' ? userData.phone : userData.email,
+            ...secondFactor
+        }, tempAccessCode)
         return {
             status_code: 200,
             message:  `User authenticated. ${message || ''}`
