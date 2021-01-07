@@ -26,6 +26,12 @@ router.get('/', (req, res) => {
  *         required: true
  *         schema:
  *             $ref: "#/definitions/credential_authenticate"
+ *       - name: "phone"
+ *         in: "query"
+ *         description: "Optional phone number to send second factor authentication"
+ *         required: false
+ *         schema:
+ *             type: "String"
  *       responses:
  *         "200":
  *           description: "Succeed authentication"
