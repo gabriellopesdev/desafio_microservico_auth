@@ -1,4 +1,4 @@
-# Desafio GPTW
+# Desafio Microserviço de Autenticação
 
 **Qual foi a proposta?** 
 
@@ -15,8 +15,6 @@ Requisitos não-funcionais
  - Deve ter a documentação de como rodar localmente e de como rodar os ambientes em production
  - Todos os serviços devem funcionar com Docker
  - Deve estar na mesma Codebase
- - Deve funcionar dentro da AWS
- - Deve ter testes unitários
  - Deve ter CI/CD
  - Desejável ter a documentação da API em SWAGGER
 
